@@ -6,28 +6,33 @@
 .project
 .pydevproject
 .idea
-*/.settings
-*/.cproject
-*/.project
-*/.pydevproject
-*/.idea
+.settings
+.cproject
+.project
+.pydevproject
+.idea
 
 # Build related #
-**/CMakeFiles
-**/CMakeCache.txt
-**/.cmake_install.cmake
-**/bin
-**/build
-**/lib
-**/msg_gen
-**/srv_gen
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+bin
+build
+lib
+msg_gen
+srv_gen
 ROS_NOBUILD
 
 # ROS generated
-**/src/*/msg/_*.py
-**/src/*/srv/_*.py
-**/src/*/cfg/*.py
-**/cfg/cpp/*
+src/*/msg/_*.py
+src/*/srv/_*.py
+src/*/cfg/*.py
+cfg/cpp/*
+
+catkin/*
+catkin_generated/*
+devel/*
+gtest/*
 
 
 # Compiled source #

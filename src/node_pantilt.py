@@ -53,6 +53,8 @@ TOPIC_ORIENT = 'pantilt/orientation'
 TOPIC_REQUEST = 'pantilt/orientation_request'
 TOPIC_JOINT = '/joint_states'
 
+TIMER_JOINT = 0.1   # default 10Hz for joint_state info publishing
+
 # geometry compensation
 OFFSET_PAN = 0      # (optional) add an offset to pan (nessie: 45 - 17.5)
 OFFSET_TILT = 0     # (optional) add an offset to tilt (nessie: 0)
@@ -96,12 +98,12 @@ class PanTiltInterface(object):
         self.elevation = 0.0
 
         # initialize ros handlers
-        self.pub = rospy.Publisher(TOPIC_ORIENT, PanTiltOrientation, latch=True)
-        self.sub = rospy.Subscriber(TOPIC_REQUEST, PanTiltOrientation, self.cb_orientation)
+        self.pub = rospy.Publisher(TOPIC_ORIENT, PanTiltOrientation, latch=True, queue_size=10)
+        self.sub = rospy.Subscriber(TOPIC_REQUEST, PanTiltOrientation, self.cb_orientation, queue_size=1)
 
         # joint
         self.joint = rospy.Publisher(TOPIC_JOINT, JointState)
-        self.timer_joint = rospy.Timer(rospy.Duration(0.1), self.cb_joints)    # 10 Hz publisher of joint states
+        self.timer_joint = rospy.Timer(rospy.Duration(TIMER_JOINT), self.cb_joints)
 
 
     def cb_joints(self, event):
