@@ -1,0 +1,16 @@
+<package>
+  <description brief="bvt_pantilt">
+
+     bvt_pantilt
+
+  </description>
+  <author>valerio</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/bvt_pantilt</url>
+  <depend package="rospy"/>
+  <depend package="sensor_msgs"/>
+
+</package>
+
+
