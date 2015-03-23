@@ -36,16 +36,11 @@ POSSIBILITY OF SUCH DAMAGE.
 -->
 
 <launch>
+	
+	<!-- load default config -->
+	<rosparam command="load" ns="" file="$(find bvt_pantilt)/launch/pantilt_sim.yaml" />
 		
-	<!-- start the pantilt driver -->
-	<node name="node_pantilt" pkg="bvt_pantilt" type="node_pantilt.py" respawn="false" output="screen">
-		<!-- pan&tilt config -->
-		<!--   serial_port: device to access -->
-		<!--   offset_pan: compensation for pan misalignment (degrees) -->
-		<!--   offset_tilt: compensation for tilt misalignment (degrees) -->
-		<param name="serial_port" value="/vdev/tty_pantilt" type="string"/>
-		<param name="offset_pan" value="0" type="int"/>
-		<param name="offset_tilt" value="0" type="int"/>
-	</node>
+	<!-- start the pantilt simulator -->
+	<node name="node_pantilt" pkg="bvt_pantilt" type="node_pantilt_sim.py" respawn="false" output="screen"/>
 
 </launch>
