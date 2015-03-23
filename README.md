@@ -14,11 +14,19 @@ The Pan Angle is aligned with the robot frame with the zero pointing forward and
 
 Future integration with JointState messages is planned later on.
 
-## Starting the driver
+## Driver
 The driver is usually started by top-level launch files. If the unit needs to be tested standalone a launch file is provided with this package:
 
 ```
 roslaunch bvt_pantilt bvt_pantilt.launch
+```
+
+## Simulator
+
+Alternatively a simulator can be started. This is provided with this package and provides the same interface of the main driver. Its configuration can be adjusted by editing the config file `launch/pantilt_sim.yaml` or by using the `rosparam` utility.
+
+```
+roslaunch bvt_pantilt bvt_pantilt_sim.launch
 ```
 
 ## Using the driver 
